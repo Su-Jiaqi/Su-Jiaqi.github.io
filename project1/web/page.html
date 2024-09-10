@@ -1,0 +1,523 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>method</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="project-1" class="md-header-anchor"></a><span>Project 1</span></h1><h2><a name="background" class="md-header-anchor"></a><span>Background</span></h2><p><span>Sergei Mikhailovich Prokudin-Gorskii was a pioneering photographer who captured images across the Russian Empire using red, green, and blue filters. These glass plate images were later digitized. The project aims to align these channels accurately using single-scale and multi-scale techniques, minimizing visual artifacts. Methods like normalized cross-correlation and edge detection are employed to recreate vibrant, historically significant images.</span></p><p>&nbsp;</p><h2><a name="method" class="md-header-anchor"></a><span>Method</span></h2><h3><a name="single-scale-alignmen" class="md-header-anchor"></a><span>Single-scale alignmen</span></h3><h4><a name="general" class="md-header-anchor"></a><span>General</span></h4><p><span>Use </span><strong><span>NCC</span></strong><span> instead of L2 to have better performance.</span></p><p><span>The code is designed to align the RGB channels of an image to produce a well-aligned color image. It begins by using </span><code>imread</code><span> to load the image, converting it into a floating-point format. After obtaining the image’s dimensions, the code splits it into blue, green, and red channels. To enhance the alignment process, </span><code>canny_edge_detection</code><span> is applied to each channel to extract edges using the Canny algorithm.</span></p><p><span>Next, the green and red channels are aligned to the blue channel. This is achieved using the </span><code>normalized_cross_correlation</code><span> function, which measures the similarity between two images, and the </span><code>align_channel</code><span> function, which finds the best shift for aligning one channel to a reference channel. The alignment is performed by comparing the central regions of the channels and maximizing the normalized cross-correlation score.</span></p><p><span>Once the optimal shifts are determined, they are applied to the respective channels. The channels are then cropped to their smallest common size before being combined into the final color image. Then using the function to remove the useless border. Finally, the resulting image is displayed using </span><code>matplotlib</code><span>, with the title &#39;Final Aligned Image&#39; and the axis turned off for better visualization.</span></p><p>&nbsp;</p><h4><a name="details" class="md-header-anchor"></a><span>Details</span></h4><ol start='' ><li><p><strong><span>Import Libraries</span></strong><span>: </span></p><ul><li><span>Use </span><code>cv2</code><span> for image processing. </span></li><li><span>Use </span><code>numpy</code><span> for array operations.</span></li><li><span>Use </span><code>skimage.io</code><span> to read images. </span></li><li><span>Use </span><code>matplotlib.pyplot</code><span> to display images.</span></li></ul></li><li><p><strong><span>Border Removal</span></strong><span>: The </span><code>remove_border</code><span> function detects and removes the borders from the image by applying adaptive thresholding and contour detection, ensuring that only the central content remains for accurate processing.</span></p></li><li><p><strong><span>Edge Detection</span></strong><span>: The </span><code>canny_edge_detection</code><span> function uses the Canny algorithm to extract edge features from the image for better alignment.</span></p></li><li><p><strong><span>Normalized Cross-Correlation (NCC)</span></strong><span>: The </span><code>normalized_cross_correlation</code><span> function calculates the similarity between the central regions of two images to assess alignment quality.</span></p></li><li><p><strong><span>Channel Alignment</span></strong><span>: The </span><code>align_channel</code><span> function searches for the best alignment position within a specified maximum offset range. Only the central region of the image is used for alignment to reduce edge alignment errors.</span></p></li><li><p><strong><span>Apply Offset</span></strong><span>: The </span><code>apply_shift</code><span> function translates the channel according to the calculated offset.</span></p></li><li><p><strong><span>Image Reading and Processing</span></strong><span>: Read the image and convert it to float format. Split the image into red, green, and blue channels.</span></p></li><li><p><strong><span>Alignment Process</span></strong><span>: Align the green and red channels with the blue channel respectively. Print the alignment offsets.</span></p></li><li><p><strong><span>Compose and Display Image</span></strong><span>: Combine the aligned channels into a color image. Then remove the border. Use </span><code>matplotlib</code><span> to display the result.</span></p><p>&nbsp;</p></li></ol><h4><a name="result" class="md-header-anchor"></a><span>Result</span></h4><figure><table><thead><tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project1\result\single_rembon\cathedral_rembon.png" alt="cathedral_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\single_rembon\monastery_rembon.png" alt="monastery_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\single_rembon\tobolsk_rembon.png" alt="tobolsk_rembon" style="zoom:50%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><h3><a name="multi-scale-alignment" class="md-header-anchor"></a><span>Multi-scale alignment</span></h3><h4><a name="general-n44" class="md-header-anchor"></a><span>General</span></h4><p><span>Use  </span><strong><span>pyramid</span></strong><span> to handle </span><code>.tif</code><span> pictures.</span></p><p><span>The code aligns RGB channels using a pyramid method and removes borders to create a well-aligned color image. It starts by loading the image, converting it to a floating-point format, and splitting it into blue, green, and red channels. Each channel is preprocessed with Gaussian blur to reduce noise. The green and red channels are aligned to the blue channel using a multi-level pyramid approach. This involves measuring similarity with </span><code>normalized_cross_correlation</code><span> and finding optimal shifts with </span><code>align_channel</code><span>. The shifts are applied using </span><code>apply_shift</code><span>, and channels are cropped to the smallest common size. The </span><code>remove_border</code><span> function eliminates borders using adaptive thresholding. Finally, the aligned channels are combined into the final RGB image, displayed with </span><code>matplotlib</code><span>.</span></p><p>&nbsp;</p><h4><a name="details-n59" class="md-header-anchor"></a><span>Details</span></h4><ol><li><p><strong><span>Import Libraries</span></strong><span>:</span></p><ul><li><span>Use </span><code>cv2</code><span> for advanced image processing operations, like contour detection and thresholding.</span></li></ul><ul><li><span>Use </span><code>numpy</code><span> for handling matrix and array manipulations.</span></li><li><span>Use </span><code>skimage.io</code><span> to read and load images in different formats.</span></li><li><span>Use </span><code>matplotlib.pyplot</code><span> to display and visualize the final image.</span></li></ul></li><li><p><strong><span>Border Removal</span></strong><span>: The </span><code>remove_border</code><span> function detects and removes the borders from the image by applying adaptive thresholding and contour detection, ensuring that only the central content remains for accurate processing.</span></p></li><li><p><strong><span>Channel Preprocessing</span></strong><span>: The </span><code>preprocess_channel</code><span> function applies Gaussian blur to each channel of the image. This step smooths the image and reduces noise, improving the accuracy of the subsequent alignment process.</span></p></li><li><p><strong><span>Normalized Cross-Correlation (NCC)</span></strong><span>: The </span><code>normalized_cross_correlation</code><span> function computes the similarity between two image regions, helping to determine the best alignment by maximizing the correlation value between channels.</span></p></li><li><p><strong><span>Channel Alignment</span></strong><span>: The </span><code>align_channel</code><span> function searches for the optimal shift for aligning an image channel with the reference channel. It performs this by rolling (shifting) the channel over a defined pixel range and calculating the NCC for each possible shift.</span></p></li><li><p><strong><span>Multiscale Pyramid Alignment</span></strong><span>: The </span><code>pyramid_align</code><span> function enhances the alignment by using an image pyramid. It aligns channels at multiple scales, first aligning smaller, downscaled images for coarse adjustment, and then refining the alignment at full resolution, improving precision and reducing computational load.</span></p></li><li><p><strong><span>Apply Offset</span></strong><span>: The </span><code>apply_shift</code><span> function takes the computed shifts (offsets) and applies them to the corresponding image channel, effectively translating the image to achieve the best alignment.</span></p></li><li><p><strong><span>Image Reading and Preprocessing</span></strong><span>: The image is read and converted to floating-point format, and the RGB channels are separated. Each channel is preprocessed (Gaussian blur) before being aligned.</span></p></li><li><p><strong><span>Alignment Process</span></strong><span>: Both the green and red channels are aligned to the blue channel using the multiscale pyramid alignment method. The calculated offsets for both the green and red channels are printed to verify the shifts applied.</span></p></li><li><p><strong><span>Compose and Display Image</span></strong><span>: After aligning and cropping the channels to the smallest common size, they are stacked back together into a composite RGB image. The final image is displayed using </span><code>matplotlib</code><span>, and the borders are removed to clean up the output.</span></p></li></ol><p>&nbsp;</p><h4><a name="result-n144" class="md-header-anchor"></a><span>Result</span></h4><figure><table><thead><tr><th><img src="F:\UCB\CS180\project1\result\multi_rembon\church_rombon.png" alt="church_rombon" style="zoom:50%;" /></th><th><img src="F:\UCB\CS180\project1\result\multi_rembon\emir_rembon.png" alt="emir_rembon" style="zoom: 50%;" /></th><th><img src="F:\UCB\CS180\project1\result\multi_rembon\harvesters_rembon.png" alt="harvesters_rembon" style="zoom:50%;" /></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project1\result\multi_rembon\icon_rembon.png" alt="icon_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\lady_rembon.png" alt="lady_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\melons_rembon.png" alt="melons_rembon" style="zoom:50%;" /></td></tr><tr><td><img src="F:\UCB\CS180\project1\result\multi_rembon\onion_church_rembon.png" alt="onion_church_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\sculpture_rembon.png" alt="sculpture_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\self_portrait_rembon.png" alt="self_portrait_rembon" style="zoom:50%;" /></td></tr><tr><td><img src="F:\UCB\CS180\project1\result\multi_rembon\three_generations_rembon.png" alt="three_generations_rembon" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\train_rembon.png" alt="train_rembon" style="zoom:50%;" /></td><td>&nbsp;</td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3><a name="bells-and-whistles" class="md-header-anchor"></a><span>Bells and Whistles</span></h3><h4><a name="remove-border" class="md-header-anchor"></a><span>Remove border</span></h4><p><span>The process begins by converting the input image from floating-point to 8-bit format, scaling pixel values from </span><code>[0, 1]</code><span> to </span><code>[0, 255]</code><span>. The blue channel is extracted, and adaptive thresholding is applied to create a binary image, segmenting pixels into black and white using a Gaussian-weighted method. The binary image is then inverted, making the background black and the foreground white. A 5x5 dilation kernel enhances the foreground, highlighting the border. Contours are detected, with the largest assumed to be the border. The </span><code>boundingRect</code><span> function calculates the minimum bounding rectangle, and the image is cropped to remove the border, returning the cropped result.</span></p><p><strong><span>effect comparison :</span></strong></p><figure><table><thead><tr><th><span>                           Before</span></th><th><span>                        After</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project1\result\single\cathedral.png" alt="cathedral" style="zoom: 67%;" /></td><td><img src="F:\UCB\CS180\project1\result\single_rembon\cathedral_rembon.png" alt="cathedral_rembon" style="zoom: 67%;" /></td></tr><tr><td><img src="F:\UCB\CS180\project1\result\multi\lady.png" alt="lady" style="zoom: 67%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\lady_rembon.png" alt="lady_rembon" style="zoom: 67%;" /></td></tr><tr><td><img src="F:\UCB\CS180\project1\result\multi\emir.png" alt="emir" style="zoom: 67%;" /></td><td><img src="F:\UCB\CS180\project1\result\multi_rembon\emir_rembon.png" alt="emir_rembon" style="zoom: 67%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h4><a name="use-cv2" class="md-header-anchor"></a><span>Use cv2</span></h4><p><strong><span>Using functions of </span><code>cv2</code><span> library, it works pretty well and fast.</span></strong></p><p><span>The image is split into blue, green, and red channels, each normalized to </span><code>[0, 1]</code><span>. An </span><code>align</code><span> function aligns these channels to a reference by normalizing them to </span><code>[0, 255]</code><span>, applying Gaussian blur, and using Canny edge detection. Phase correlation calculates the optimal shift, and </span><code>cv2.warpAffine</code><span> applies it. After alignment, the channels are combined into an RGB image. The </span><code>remove_border</code><span> function scales the image to </span><code>[0, 255]</code><span>, extracts the blue channel, and uses adaptive thresholding to create a binary image. It inverts and dilates the binary image, finds the largest contour, computes its bounding box, and crops the image to remove the border. </span></p><p>&nbsp;</p><figure><table><thead><tr><th><span>                                  Before</span></th><th><span>                                        After</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project1\result\multi_rembon\melons_rembon.png" alt="melons_rembon" style="zoom: 80%;" /></td><td><img src="F:\UCB\CS180\project1\result\cv2\melons.png" alt="melons" style="zoom:67%;" /></td></tr><tr><td><img src="F:\UCB\CS180\project1\result\multi_rembon\onion_church_rembon.png" alt="onion_church_rembon" style="zoom:80%;" /></td><td><img src="F:\UCB\CS180\project1\result\cv2\onion_church.png" alt="onion_church" style="zoom:67%;" /></td></tr><tr><td><img src="F:\UCB\CS180\project1\result\multi_rembon\self_portrait_rembon.png" alt="self_portrait_rembon" style="zoom:80%;" /></td><td><img src="F:\UCB\CS180\project1\result\cv2\self_portrait.png" alt="self_portrait" style="zoom: 67%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+</body>
+</html>
