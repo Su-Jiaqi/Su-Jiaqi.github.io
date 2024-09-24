@@ -1,0 +1,533 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Project2</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="project-2" class="md-header-anchor"></a><span>Project 2</span></h1><h3><a name="part-1" class="md-header-anchor"></a><span>Part 1</span></h3><h4><a name="part11finite-difference-operator" class="md-header-anchor"></a><span>Part1.1：Finite Difference Operator</span></h4><p><strong><span>1. Image Loading and Preprocessing</span></strong>
+<span>Load the PNG image from the specified path, check if there is an alpha channel, and remove it. Then, convert the RGB image to grayscale to simplify processing.</span></p><p><strong><span>2. Define Finite Difference Operators</span></strong>
+<span>Use two simple difference operators:</span></p><ul><li><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38.251ex" height="2.577ex" viewBox="0 -806.1 16469.1 1109.7" role="img" focusable="false" style="vertical-align: -0.705ex;"><defs><path stroke-width="0" id="E1-MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path stroke-width="0" id="E1-MJMATHI-78" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path stroke-width="0" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E1-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="0" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E1-MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="0" id="E1-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E1-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E1-MJMATHI-44" x="0" y="0"></use><use xlink:href="#E1-MJMATHI-78" x="828" y="0"></use><use xlink:href="#E1-MJMAIN-3D" x="1677" y="0"></use><use xlink:href="#E1-MJMAIN-5B" x="2733" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="3011" y="0"></use><use xlink:href="#E1-MJMAIN-2C" x="3511" y="0"></use><use xlink:href="#E1-MJMAIN-2212" x="3956" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="4734" y="0"></use><use xlink:href="#E1-MJMAIN-5D" x="5234" y="0"></use><g transform="translate(5512,0)"><use xlink:href="#E1-MJMATHI-44" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1-MJMATHI-78" x="1170" y="-213"></use></g><use xlink:href="#E1-MJMAIN-3D" x="7122" y="0"></use><use xlink:href="#E1-MJMAIN-5B" x="8178" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="8456" y="0"></use><use xlink:href="#E1-MJMAIN-2C" x="8956" y="0"></use><use xlink:href="#E1-MJMAIN-2212" x="9400" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="10178" y="0"></use><use xlink:href="#E1-MJMAIN-5D" x="10678" y="0"></use><use xlink:href="#E1-MJMATHI-44" x="10956" y="0"></use><use xlink:href="#E1-MJMATHI-78" x="11784" y="0"></use><use xlink:href="#E1-MJMAIN-3D" x="12634" y="0"></use><use xlink:href="#E1-MJMAIN-5B" x="13690" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="13968" y="0"></use><use xlink:href="#E1-MJMAIN-2C" x="14468" y="0"></use><use xlink:href="#E1-MJMAIN-2212" x="14913" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="15691" y="0"></use><use xlink:href="#E1-MJMAIN-5D" x="16191" y="0"></use></g></svg></span><script type="math/tex">Dx=[1,−1]D_x = [1, -1]Dx=[1,−1]</script><span> to detect horizontal changes.</span></li><li><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="37.874ex" height="5.846ex" viewBox="0 -1509.8 16306.7 2517" role="img" focusable="false" style="vertical-align: -2.339ex;"><defs><path stroke-width="0" id="E2-MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path stroke-width="0" id="E2-MJMATHI-79" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E2-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E2-MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="0" id="E2-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E2-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E2-MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path><path stroke-width="0" id="E2-MJSZ3-5B" d="M247 -949V1450H516V1388H309V-887H516V-949H247Z"></path><path stroke-width="0" id="E2-MJSZ3-5D" d="M11 1388V1450H280V-949H11V-887H218V1388H11Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMATHI-44" x="0" y="0"></use><use xlink:href="#E2-MJMATHI-79" x="828" y="0"></use><use xlink:href="#E2-MJMAIN-3D" x="1602" y="0"></use><use xlink:href="#E2-MJMAIN-5B" x="2658" y="0"></use><use xlink:href="#E2-MJMAIN-31" x="2936" y="0"></use><use xlink:href="#E2-MJMAIN-2212" x="3658" y="0"></use><use xlink:href="#E2-MJMAIN-31" x="4659" y="0"></use><use xlink:href="#E2-MJMAIN-5D" x="5159" y="0"></use><g transform="translate(5437,0)"><use xlink:href="#E2-MJMATHI-44" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E2-MJMATHI-79" x="1170" y="-213"></use></g><use xlink:href="#E2-MJMAIN-3D" x="6994" y="0"></use><g transform="translate(8049,0)"><use xlink:href="#E2-MJSZ3-5B"></use><g transform="translate(695,0)"><g transform="translate(-15,0)"><use xlink:href="#E2-MJMAIN-31" x="389" y="650"></use><g transform="translate(0,-750)"><use xlink:href="#E2-MJMAIN-2212" x="0" y="0"></use><use xlink:href="#E2-MJMAIN-31" x="778" y="0"></use></g></g></g><use xlink:href="#E2-MJSZ3-5D" x="2125" y="-1"></use></g><use xlink:href="#E2-MJMATHI-44" x="10869" y="0"></use><use xlink:href="#E2-MJMATHI-79" x="11697" y="0"></use><use xlink:href="#E2-MJMAIN-3D" x="12472" y="0"></use><use xlink:href="#E2-MJMAIN-5B" x="13528" y="0"></use><use xlink:href="#E2-MJMAIN-31" x="13806" y="0"></use><use xlink:href="#E2-MJMAIN-2212" x="14528" y="0"></use><use xlink:href="#E2-MJMAIN-31" x="15528" y="0"></use><use xlink:href="#E2-MJMAIN-5D" x="16028" y="0"></use></g></svg></span><script type="math/tex">Dy=[1−1]D_y = \begin{bmatrix} 1 \\ -1 \end{bmatrix}Dy=[1−1]</script><span> to detect vertical changes.</span></li></ul><p><strong><span>3. Convolution to Compute Gradients</span></strong>
+<span>Perform 2D convolution between the image and the </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.095ex" height="2.344ex" viewBox="0 -755.9 1332.5 1009.2" role="img" focusable="false" style="vertical-align: -0.588ex;"><defs><path stroke-width="0" id="E3-MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path stroke-width="0" id="E3-MJMATHI-78" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E3-MJMATHI-44" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E3-MJMATHI-78" x="1170" y="-213"></use></g></svg></span><script type="math/tex">D_x</script><span> and </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.972ex" height="2.577ex" viewBox="0 -755.9 1279.4 1109.7" role="img" focusable="false" style="vertical-align: -0.822ex;"><defs><path stroke-width="0" id="E4-MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path stroke-width="0" id="E4-MJMATHI-79" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMATHI-44" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E4-MJMATHI-79" x="1170" y="-213"></use></g></svg></span><script type="math/tex">D_y</script><span> operators, computing gradients in the horizontal and vertical directions to detect local changes in the image.</span></p><p><strong><span>4. Compute Gradient Magnitude</span></strong>
+<span>Use the formula </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="18.243ex" height="4.679ex" viewBox="0 -1308.7 7854.5 2014.4" role="img" focusable="false" style="vertical-align: -1.639ex;"><defs><path stroke-width="0" id="E5-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E5-MJMAIN-67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z"></path><path stroke-width="0" id="E5-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path stroke-width="0" id="E5-MJMAIN-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"></path><path stroke-width="0" id="E5-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path><path stroke-width="0" id="E5-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E5-MJMATHI-78" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path stroke-width="0" id="E5-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="0" id="E5-MJMATHI-79" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E5-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="0" id="E5-MJSZ2-221A" d="M1001 1150Q1017 1150 1020 1132Q1020 1127 741 244L460 -643Q453 -650 436 -650H424Q423 -647 423 -645T421 -640T419 -631T415 -617T408 -594T399 -560T385 -512T367 -448T343 -364T312 -259L203 119L138 41L111 67L212 188L264 248L472 -474L983 1140Q988 1150 1001 1150Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E5-MJSZ2-221A" x="0" y="22"></use><rect stroke="none" width="6854" height="60" x="1000" y="1112"></rect><g transform="translate(1000,0)"><use xlink:href="#E5-MJMAIN-28" x="0" y="0"></use><g transform="translate(389,0)"><use xlink:href="#E5-MJMAIN-67"></use><use xlink:href="#E5-MJMAIN-72" x="500" y="0"></use><use xlink:href="#E5-MJMAIN-61" x="892" y="0"></use><use xlink:href="#E5-MJMAIN-64" x="1392" y="0"></use><use transform="scale(0.707)" xlink:href="#E5-MJMAIN-32" x="2754" y="596"></use><use transform="scale(0.707)" xlink:href="#E5-MJMATHI-78" x="2754" y="-350"></use></g><use xlink:href="#E5-MJMAIN-2B" x="3063" y="0"></use><g transform="translate(4063,0)"><use xlink:href="#E5-MJMAIN-67"></use><use xlink:href="#E5-MJMAIN-72" x="500" y="0"></use><use xlink:href="#E5-MJMAIN-61" x="892" y="0"></use><use xlink:href="#E5-MJMAIN-64" x="1392" y="0"></use><use transform="scale(0.707)" xlink:href="#E5-MJMAIN-32" x="2754" y="596"></use><use transform="scale(0.707)" xlink:href="#E5-MJMATHI-79" x="2754" y="-350"></use></g><use xlink:href="#E5-MJMAIN-29" x="6465" y="0"></use></g></g></svg></span><script type="math/tex">\sqrt{(\text{grad}_x^2 + \text{grad}_y^2)}</script><span> to calculate the gradient magnitude, combining changes in both the x and y directions to highlight the edges in the image.</span></p><p><strong><span>5. Binarization</span></strong>
+<span>Apply a threshold to the gradient magnitude image to perform binarization, marking pixels above the threshold as edges, resulting in the final edge-detected image. After sometimes try, I finally choose 0.2 to be the threhshold, which has the best performance.</span></p><figure><table><thead><tr><th><span>Before</span></th><th><span>Gradient magnitude</span></th><th><span>edge image</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\origin_photo\cameraman.png" alt="cameraman" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project2\part1\gradient_magnitude.png" alt="gradient_magnitude" style="zoom:67%;" /></td><td><img src="F:\UCB\CS180\project2\part1\edge image.png" alt="edge image" style="zoom:67%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h4><a name="part-12derivative-of-gaussian-dog-filter" class="md-header-anchor"></a><span>Part 1.2：Derivative of Gaussian (DoG) Filter</span></h4><h5><a name="algorithm-overview-derivative-of-gaussian-dog-filter" class="md-header-anchor"></a><span>Algorithm Overview: Derivative of Gaussian (DoG) Filter</span></h5><p><span>In this part, we use Gaussian smoothing to reduce image noise and combine it with a finite difference operator for edge detection. The process starts by applying Gaussian blur to smooth the image, followed by edge detection using a finite difference operator. We then optimize the process by combining the Gaussian smoothing and the difference operator into a single step using the </span><strong><span>Derivative of Gaussian (DoG) filter</span></strong><span>, which allows us to perform both operations with a single convolution.</span></p><h5><a name="algorithm" class="md-header-anchor"></a><strong><span>Algorithm:</span></strong></h5><ol start='' ><li><strong><span>Image Loading and Grayscale Conversion:</span></strong>
+<span>The image is loaded and converted to grayscale to ensure we are working with a single-channel image.</span></li><li><strong><span>Gaussian Smoothing:</span></strong>
+<span>Using the </span><code>getGaussianKernel()</code><span> function from OpenCV, a 1D Gaussian kernel is generated. This 1D kernel is used to create a 2D Gaussian kernel via outer product. The 2D Gaussian kernel is then convolved with the grayscale image to produce a blurred version of the original image, reducing noise and smoothing the details.</span></li><li><strong><span>Convolution to Compute Image Gradients:</span></strong>
+<span>We convolve the blurred image with the finite difference operators DxD_xDx​ and DyD_yDy​ to compute the gradients in the horizontal and vertical directions, respectively. This step extracts edge information from the smoothed image.</span></li><li><strong><span>Compute Gradient Magnitude:</span></strong>
+<span>By combining the horizontal and vertical gradients, we compute the gradient magnitude of the image. The gradient magnitude highlights areas where changes are most significant, typically corresponding to edges in the image.</span></li><li><strong><span>Generate the Derivative of Gaussian (DoG) Filter:</span></strong>
+<span>To optimize the process, we convolve the Gaussian kernel with the difference operators to create the DoG filters. These filters allow us to perform both Gaussian smoothing and edge detection in a single convolution step. Finally, we apply the DoG filters to the image to compute the gradients and extract the edge information.</span></li></ol><p>&nbsp;</p><figure><table><thead><tr><th><span>Gaussian Blurred Image</span></th><th><span>Gradient Mgnitude after Gussian Blurring</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\part1\Gaussian_Blurred_Image.png" alt="Gaussian_Blurred_Image" style="zoom:80%;" /></td><td><img src="F:\UCB\CS180\project2\part1\GM_after_GB.png" alt="GM_after_GB" style="zoom:80%;" /></td></tr><tr><td><span>** DoG filter**</span></td><td><strong><span>Gradient Magnitude with DoG Filter</span></strong></td></tr><tr><td><img src="F:\UCB\CS180\project2\part1\DoG.png" alt="DoG" style="zoom:80%;" /></td><td><img src="F:\UCB\CS180\project2\part1\GM_DoG.png" alt="GM_DoG" style="zoom:80%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h5><a name="observed-differences" class="md-header-anchor"></a><strong><span>Observed Differences:</span></strong></h5><ul><li><strong><span>Using only the difference operators</span></strong><span>, the edge detection is more susceptible to noise, leading to irregular edges, especially when the original image contains high-frequency components where noise and edges are hard to distinguish.</span></li><li><strong><span>After applying Gaussian smoothing</span></strong><span>, the noise is reduced, resulting in smoother and more continuous edges, making the edge features more prominent and cleaner.</span></li><li><strong><span>With the DoG filters</span></strong><span>, the Gaussian smoothing and edge detection are combined into a single convolution, making the process more efficient while producing results similar to those of performing Gaussian smoothing followed by edge detection separately.</span></li></ul><p>&nbsp;</p><h3><a name="part-2" class="md-header-anchor"></a><span>Part 2</span></h3><h4><a name="part-21-image-sharpening" class="md-header-anchor"></a><span>Part 2.1: Image &quot;Sharpening&quot;</span></h4><h5><a name="algorithm-n65" class="md-header-anchor"></a><span>Algorithm:</span></h5><ol start='' ><li><p><strong><span>Image Loading and Grayscale Conversion</span></strong><span>:</span></p><p><span>	</span><span>The images are loaded and converted to grayscale, focusing the processing on brightness and edge information without interference from color.</span></p></li><li><p><strong><span>Gaussian Blur</span></strong><span>:</span></p><p><span>	</span><span>A Gaussian blur is applied to smooth the image, extracting its low-frequency components (smooth regions) while removing high-frequency details and noise.</span></p></li><li><p><strong><span>Extracting High-Frequency Components</span></strong><span>:</span></p><p><span>	</span><span>The original image is subtracted by the blurred image to obtain the high-frequency components, which contain details and edges.</span></p></li><li><p><strong><span>Sharpening (Unsharp Masking)</span></strong><span>:</span></p><p><span>	</span><span>The extracted high-frequency components are multiplied by a factor </span><code>alpha</code><span> and added back to the original image. This enhances the image&#39;s edges and details, resulting in a sharpened effect. The larger the </span><code>alpha</code><span> value, the stronger the sharpening effect.</span></p></li><li><p><strong><span>Brightness Matching</span></strong><span>:</span></p><p><span>	</span><span>Since sharpening can change the image&#39;s brightness, histogram matching (</span><code>exposure.match_histograms</code><span>) is used to adjust the sharpened image&#39;s brightness to match the original image, preventing the sharpened image from being too bright or too dark.</span></p></li><li><p><strong><span>Imgaes</span></strong></p><p><span>	</span><span>Image1 and Image2 are the original clear pictures, of which picture 2 has a higher pixel. I blurred them, extracted the features and then sharpened them. Here&#39;s the result.</span></p><p><span>	</span><span>To see the difference clearer, I exchange the imgaes into gray imgaes as well.</span></p></li></ol><h5><a name="core-steps" class="md-header-anchor"></a><span>Core Steps:</span></h5><ul><li><strong><span>Gaussian Blur</span></strong><span>: Separates the low-frequency (smooth) parts of the image.</span></li><li><strong><span>High-Frequency Extraction</span></strong><span>: Subtracts the blurred image from the original to isolate details.</span></li><li><strong><span>High-Frequency Weighting</span></strong><span>: Enhances the sharpened effect by adding back weighted high-frequency components.</span></li><li><strong><span>Brightness Matching</span></strong><span>: Ensures the brightness and contrast of the sharpened image remain consistent with the original.</span></li></ul><p>&nbsp;</p><p><img src="F:\UCB\CS180\project2\part2\2.1-0.png" referrerpolicy="no-referrer" alt="2.1-0"></p><p><img src="F:\UCB\CS180\project2\part2\2.1-1.png" referrerpolicy="no-referrer" alt="2.1-1"></p><!--Plus: I didn't find images with very low pixels on my computer or phone, so the Image2 is a little too high. This Gaussian check doesn't blur very well. But to compare Image1 to Image2, I didn't change the size of the Gaussian kernel, what is a pity.--><p>&nbsp;</p><h5><a name="sharpen-blurry-image" class="md-header-anchor"></a><span>Sharpen blurry image</span></h5><ol start='' ><li><strong><span>Gaussian Blur</span></strong><span>:</span></li></ol><p><span>	</span><span>The image is smoothed using a Gaussian blur. This acts as a low-pass filter that removes high-frequency components such as noise and fine details.</span></p><ol start='2' ><li><strong><span>Extracting High-Frequency Components</span></strong><span>:</span></li></ol><p><span>	</span><span>The high-frequency components (edges and details) are obtained by subtracting the blurred image from the original image. This isolates the sharp details that were removed by the blur.</span></p><ol start='3' ><li><strong><span>Sharpening</span></strong><span>:</span></li></ol><p><span>	</span><span>The high-frequency components are multiplied by a factor </span><code>alpha</code><span> and added back to the original image using </span><code>cv2.addWeighted()</code><span>. This step enhances the edges and details, making the image sharper. The </span><code>alpha</code><span> value controls the intensity of the sharpening effect.</span></p><ol start='4' ><li><strong><span>Display</span></strong><span>:</span></li></ol><p><span>	</span><span>Finally, the original blurry image and the sharpened image are displayed side by side for comparison.</span></p><p><img src="F:\UCB\CS180\project2\part2\2.1-2.png" referrerpolicy="no-referrer" alt="2.1-2"></p><h4><a name="part-22-hybrid-images" class="md-header-anchor"></a><span>Part 2.2: Hybrid Images</span></h4><p><span>This part focuses on generating a hybrid image by combining the low-frequency content of one image with the high-frequency content of another image, and then analyzing its frequency spectrum using Fourier transforms. Here&#39;s a brief explanation of the algorithm:</span></p><h5><a name="1-image-alignment" class="md-header-anchor"></a><span>1. </span><strong><span>Image Alignment</span></strong></h5><p><span>The </span><code>align_images</code><span> function is used to align two images:</span></p><ul><li><strong><span>Manual Point Selection</span></strong><span>: Users select key points in both images to align the center, scale, and rotation.</span></li><li><strong><span>Center Alignment</span></strong><span>: The </span><code>align_image_centers</code><span> function aligns the centers of the two images by recalculating the center of the selected key points.</span></li><li><strong><span>Image Rescaling</span></strong><span>: The </span><code>rescale_images</code><span> function adjusts the scale of the images, making sure both images have the same scale.</span></li><li><strong><span>Image Rotation</span></strong><span>: The </span><code>rotate_im1</code><span> function rotates one image based on the relative angle between the key points.</span></li><li><strong><span>Size Matching</span></strong><span>: The </span><code>match_img_size</code><span> function ensures that both images have the same size by trimming or padding the edges as needed.</span></li></ul><h5><a name="2-hybrid-image-generation" class="md-header-anchor"></a><span>2. </span><strong><span>Hybrid Image Generation</span></strong></h5><p><span>The </span><code>hybrid_image</code><span> function is responsible for generating the hybrid image through the following steps:</span></p><ul><li><strong><span>Low-Frequency Part</span></strong><span>: The first image (</span><code>im1</code><span>) is blurred using a Gaussian filter to extract its low-frequency content.</span></li><li><strong><span>High-Frequency Part</span></strong><span>: The second image (</span><code>im2</code><span>) is also blurred, and the result is subtracted from the original image to retain the high-frequency information.</span></li><li><strong><span>Combining Frequencies</span></strong><span>: The low-frequency and high-frequency parts are added together to create the hybrid image. The result is clipped to ensure pixel values remain within a valid range using </span><code>np.clip</code><span>.</span></li></ul><h5><a name="3-fourier-spectrum-analysis" class="md-header-anchor"></a><span>3. </span><strong><span>Fourier Spectrum Analysis</span></strong></h5><p><span>The </span><code>display_fft</code><span> function is used to visualize the frequency spectrum of the images:</span></p><ul><li><strong><span>Fourier Transform</span></strong><span>: The </span><code>np.fft.fft2</code><span> function computes the 2D Fourier transform of the image, and </span><code>fftshift</code><span> shifts the zero-frequency component to the center of the spectrum.</span></li><li><strong><span>Displaying the Spectrum</span></strong><span>: The magnitude of the Fourier transform is computed, and logarithmic scaling is applied to avoid large value ranges. The result is then visualized as a grayscale image representing the frequency distribution.</span></li></ul><h5><a name="summary" class="md-header-anchor"></a><span>Summary</span></h5><ul><li><strong><span>Image Alignment</span></strong><span>: Key points are manually selected by the user to align the images in terms of center, scale, and rotation.</span></li><li><strong><span>Hybrid Image Generation</span></strong><span>: The low-frequency information from one image is combined with the high-frequency information from another to produce a hybrid image.</span></li><li><strong><span>Fourier Spectrum Analysis</span></strong><span>: Fourier transforms are used to analyze the frequency characteristics of the images, and the results are displayed as grayscale frequency spectrum images.</span></li></ul><p>&nbsp;</p><h5><a name="results" class="md-header-anchor"></a><span>Results</span></h5><ul><li><strong><span>The result of running a given image:</span></strong></li></ul><figure><table><thead><tr><th><span> Low Frequency</span></th><th><span>         High Frequency</span></th><th><span>                            Result</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\origin_photo\DerekPicture.jpg" alt="DerekPicture" style="zoom:50%;" /></td><td><img src="F:\UCB\CS180\project2\origin_photo\nutmeg.jpg" alt="nutmeg" style="zoom:35%;" /></td><td><img src="F:\UCB\CS180\project2\part2\2.2-1.png" alt="2.2-1" style="zoom:120%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><ul><li><strong><span>Result with Fourier frequency analysis spectrum:</span></strong></li></ul><figure><table><thead><tr><th><span>Low Frequency</span></th><th><span>    High Frequency</span></th><th><span>                                    Result</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\origin_photo\3.jpg" alt="3" style="zoom:30%;" /></td><td><img src="F:\UCB\CS180\project2\origin_photo\4.JPG" referrerpolicy="no-referrer" alt="4"></td><td><img src="F:\UCB\CS180\project2\part2\2.2-3.png" alt="2.2-3" style="zoom:200%;" /></td></tr></tbody></table></figure><figure><table><thead><tr><th><strong><span>FFT of Image 1 (Low Frequencies)</span></strong></th><th><strong><span>FFT of Image 2 (High Frequencies)</span></strong></th><th><strong><span>FFT of Hybrid Image</span></strong></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\part2\2.2-4.png" referrerpolicy="no-referrer" alt="2.2-4"></td><td><img src="F:\UCB\CS180\project2\part2\2.2-5.png" referrerpolicy="no-referrer" alt="2.2-5"></td><td><img src="F:\UCB\CS180\project2\part2\2.2-6.png" referrerpolicy="no-referrer" alt="2.2-6"></td></tr></tbody></table></figure><p>&nbsp;</p><ul><li><strong><span>Some other atemps:</span></strong></li></ul><figure><table><thead><tr><th><span>Low Frequency</span></th><th><span>    High Frequency</span></th><th><span>                                    Result</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\origin_photo\4.JPG" referrerpolicy="no-referrer" alt="4"></td><td><img src="F:\UCB\CS180\project2\origin_photo\1.JPG" alt="1" style="zoom: 30%;" /></td><td><img src="F:\UCB\CS180\project2\part2\2.2-2.png" alt="2.2-2" style="zoom:200%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><ul><li><strong><span>Failed attemps :</span></strong></li></ul><p><span>	</span><span>We are not able to recognize the low frequency image of the cat even if we stand really far away. That might because the  cat&#39;s head is not very clear.</span></p><figure><table><thead><tr><th><span>Low Frequency</span></th><th><span>    High Frequency</span></th><th><span>                                    Result</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\origin_photo\5.jpg" alt="5" style="zoom: 25%;" /></td><td><img src="F:\UCB\CS180\project2\origin_photo\7.JPG" referrerpolicy="no-referrer" alt="7"></td><td><img src="F:\UCB\CS180\project2\part2\2.2-8.png" referrerpolicy="no-referrer" alt="2.2-8"></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="part-23--gaussian-and-laplacian-stacks" class="md-header-anchor"></a><span>Part 2.3 : Gaussian and Laplacian Stacks</span></h3><h5><a name="algorithms" class="md-header-anchor"></a><span>Algorithms:</span></h5><ol><li><p><strong><span>Gaussian Stack</span></strong><span>:</span></p><ul><li><p><span>The Gaussian stack is created by applying Gaussian blur to the image at each level without downsampling. The 0th level is the original image, and each subsequent level is a more blurred version of the previous one.</span></p></li><li><p><span>Steps:</span></p><ul><li><span>Start with the original image and apply Gaussian blur to generate the next level.</span></li><li><span>Repeat until the desired number of levels is reached, keeping the image size constant.</span></li></ul></li></ul></li><li><p><strong><span>Laplacian Stack</span></strong><span>:</span></p><ul><li><p><span>The Laplacian stack is generated by subtracting each level of the Gaussian stack from the next one, capturing the image&#39;s edge and detail information. The last level of the Laplacian stack is the lowest-resolution image in the Gaussian stack.</span></p></li><li><p><span>Steps:</span></p><ul><li><span>Subtract the next Gaussian level from the current one to get the Laplacian image for that level.</span></li><li><span>The last level of the Laplacian stack is the last (most blurred) image from the Gaussian stack.</span></li></ul></li></ul></li><li><p><strong><span>Processing Color Images</span></strong><span>:</span></p><ul><li><p><span>The color image is split into three channels: red, green, and blue. Each channel is processed independently to generate Gaussian and Laplacian stacks. After processing, the channels are merged back to form a color image.</span></p></li><li><p><span>Steps:</span></p><ul><li><span>Split the image into RGB channels.</span></li><li><span>Generate Gaussian and Laplacian stacks for each channel.</span></li><li><span>Merge the channels back together for each level of the stack.</span></li></ul></li></ul></li><li><p><strong><span>Image Normalization</span></strong><span>:</span></p><ul><li><span>Since the pixel values in the Laplacian images may exceed the usual range, the code normalizes each image’s intensity to the range [0, 255] for proper visualization.</span></li><li><span>Steps：Use </span><code>cv2.normalize</code><span> to scale the pixel values of the image to the 0-255 range and convert the image to </span><code>uint8</code><span>.</span></li></ul></li><li><p><strong><span>Display Stacks</span></strong><span>:</span></p><ul><li><p><span>The code uses </span><code>matplotlib</code><span> to display the Gaussian and Laplacian stacks in a single figure. Each level of the stack is shown side-by-side for comparison.</span></p></li><li><p><span>Steps:</span></p><ul><li><span>Normalize the images for visualization.</span></li><li><span>Display both the Gaussian and Laplacian stack side by side using subplots.</span></li></ul></li></ul></li></ol><h5><a name="workflow" class="md-header-anchor"></a><span>Workflow:</span></h5><ol><li><p><strong><span>Load Image</span></strong><span>:</span></p><ul><li><span>The code loads the image in color, converts it to float format, and switches from BGR to RGB for correct color representation.</span></li></ul></li><li><p><strong><span>Generate Stacks</span></strong><span>:</span></p><ul><li><span>The </span><code>process_color_image</code><span> function is used to generate the Gaussian and Laplacian stacks for each channel of the image.</span></li></ul></li><li><p><strong><span>Display Results</span></strong><span>:</span></p><ul><li><span>The </span><code>display_stacks</code><span> function is used to show the Gaussian and Laplacian stacks in a single figure.</span></li></ul></li></ol><h5><a name="summary-n418" class="md-header-anchor"></a><span>Summary:</span></h5><ul><li><strong><span>Gaussian Stack</span></strong><span>: Creates multiple progressively blurred versions of the image, maintaining the same size.</span></li><li><strong><span>Laplacian Stack</span></strong><span>: Captures the edge and detail information at each level by subtracting adjacent Gaussian levels.</span></li><li><strong><span>Color Processing</span></strong><span>: Splits the image into RGB channels, processes them individually, and then merges the results.</span></li><li><strong><span>Normalization</span></strong><span>: Ensures all images are displayed with correct brightness and contrast by rescaling intensities.</span></li></ul><h5><a name="results-n326" class="md-header-anchor"></a><span>Results:</span></h5><p><img src="F:\UCB\CS180\project2\part2\2.3-1.png" referrerpolicy="no-referrer" alt="2.3-1"></p><p><img src="F:\UCB\CS180\project2\part2\2.3-2.png" referrerpolicy="no-referrer" alt="2.3-2"></p><p><img src="F:\UCB\CS180\project2\part2\2.3-3.png" referrerpolicy="no-referrer" alt="2.3-3"></p><p>&nbsp;</p><h3><a name="part-24--multiresolution-blending" class="md-header-anchor"></a><span>Part 2.4 : Multiresolution Blending </span></h3><h3><a name="key-concepts" class="md-header-anchor"></a><span>Key Concepts:</span></h3><ol><li><strong><span>Gaussian Pyramid</span></strong><span>: This is a series of increasingly blurred and downsampled versions of an image. Each level of the pyramid represents the image at a lower resolution.</span></li><li><strong><span>Laplacian Pyramid</span></strong><span>: This pyramid captures the details at different scales by subtracting the Gaussian pyramid&#39;s levels. Each level shows the image&#39;s fine details, and it&#39;s created by subtracting the upsampled version of a lower-level Gaussian pyramid from the current Gaussian level.</span></li><li><strong><span>Blending</span></strong><span>: The blending is performed using an input mask that defines the regions to blend between two images. The blending occurs at each level of the Laplacian pyramids using the Gaussian pyramid of the mask to smooth transitions.</span></li></ol><h3><a name="algorithm-steps" class="md-header-anchor"></a><span>Algorithm Steps:</span></h3><ol><li><p><span>Gaussian Pyramid Creation</span></p><ul><li><span>The </span><code>gaussian_stack</code><span> function creates a Gaussian pyramid for a given image by repeatedly applying Gaussian blur and downsampling.</span></li><li><span>The number of levels (</span><code>num_levels</code><span>) and the blur strength (</span><code>sigma</code><span>) are defined as parameters.</span></li></ul></li><li><p><span>Laplacian Pyramid Creation</span></p><ul><li><span>The </span><code>laplacian_stack</code><span> function computes the Laplacian pyramid by subtracting the upsampled version of a lower-resolution Gaussian level from the current Gaussian level. This captures the details (edges, textures) at each level.</span></li></ul></li><li><p><span>Processing Color Images</span></p><ul><li><span>The </span><code>process_color_image</code><span> function processes color images by applying the Gaussian and Laplacian pyramid construction on each color channel (R, G, B) separately.</span></li></ul></li><li><p><span>Multiresolution Blending</span></p><ul><li><span>The </span><code>multiresolution_blending</code><span> function blends two images (</span><code>image1</code><span> and </span><code>image2</code><span>) based on a given mask (</span><code>mask</code><span>).</span></li><li><span>First, Gaussian and Laplacian pyramids are created for both images and the mask.</span></li><li><span>At each level of the pyramids, the blending is performed using the formula: blended=laplacian1×(1−mask)+laplacian2×mask\text{blended} = \text{laplacian1} \times (1 - \text{mask}) + \text{laplacian2} \times \text{mask}blended=laplacian1×(1−mask)+laplacian2×mask</span></li><li><span>Finally, the blended image is reconstructed by successively upsampling and adding the blended pyramid levels from the Laplacian pyramids.</span></li></ul></li></ol><h3><a name="result" class="md-header-anchor"></a><span>Result:</span></h3><ul><li><span>The final blended image is produced after combining the Laplacian pyramids of both images using the mask pyramid. The result is a smooth transition between the two images at multiple scales.</span></li><li><span>The code visualizes the blended image at the end using </span><code>matplotlib</code><span>.</span></li></ul><p>&nbsp;</p><p><img src="F:\UCB\CS180\project2\part2\blended_image.jpg" referrerpolicy="no-referrer" alt="blended_image"></p><p><img src="F:\UCB\CS180\project2\part2\2.4-3.png" referrerpolicy="no-referrer" alt="2.4-3"></p><figure><table><thead><tr><th><span>image 1</span></th><th><span>image 2</span></th><th><span>result</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project2\origin_photo\11.jpg" alt="11" style="zoom:33%;" /></td><td><img src="F:\UCB\CS180\project2\origin_photo\12.jpg" alt="12" style="zoom:33%;" /></td><td><img src="F:\UCB\CS180\project2\part2\2.4-2.png" referrerpolicy="no-referrer" alt="2.4-2"></td></tr></tbody></table></figure><p><img src="F:\UCB\CS180\project2\part2\2.4-4.png" referrerpolicy="no-referrer" alt="2.4-4"></p></div>
+</body>
+</html>
