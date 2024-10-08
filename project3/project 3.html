@@ -1,0 +1,523 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>project 3</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="cs180-project-3-face-morphing" class="md-header-anchor"></a><span>CS180 Project 3: Face Morphing</span></h1><h3><a name="part-1-defining-correspondences" class="md-header-anchor"></a><span>Part 1: Defining Correspondences</span></h3><p><span>In this part, we first need to manually mark the key points on two images to control the morphing. By defining correspondences (e.g., mapping eyes to eyes, mouth to mouth, chin to chin, etc.), we can ensure a smooth transformation between the two images.</span></p><h4><a name="our-approach" class="md-header-anchor"></a><span>Our Approach:</span></h4><h5><a name="1-selecting-corresponding-points" class="md-header-anchor"></a><span>1. </span><strong><span>Selecting Corresponding Points</span></strong></h5><ul><li><strong><code>select_points()</code></strong><span> (commented out in the current version) allows users to manually select key points on both images, such as eyes, mouth, or facial features, that will be used for triangulation and alignment. These points ensure that the transformation (morphing) between images is meaningful and smooth.</span></li></ul><h5><a name="2-delaunay-triangulation-computedelaunay" class="md-header-anchor"></a><span>2. </span><strong><span>Delaunay Triangulation (</span><code>compute_delaunay()</code><span>)</span></strong></h5><ul><li><span>Delaunay triangulation is computed based on the selected points for each image. This algorithm divides the set of points into triangles such that no point is inside the circumcircle of any triangle. This produces a mesh of triangles over each image.</span></li><li><strong><span>Purpose</span></strong><span>: Triangulation helps in defining smaller regions of the image that can be warped individually during the morphing process, ensuring that the transformation happens smoothly and consistently across corresponding regions in both images.</span></li></ul><h5><a name="3-visualizing-the-delaunay-triangulation" class="md-header-anchor"></a><span>3. </span><strong><span>Visualizing the Delaunay Triangulation</span></strong></h5><ul><li><strong><code>plot_delaunay_side_by_side()</code></strong><span>: This step visualizes the computed Delaunay triangulation for both images, allowing the user to see how the images are segmented into triangles based on the corresponding points.</span></li><li><span>Each triangle in Image A will correspond to a triangle in Image B based on the point correspondences, which is crucial for the morphing operation that follows.</span></li></ul><h5><a name="4-affine-transformation-and-morphing" class="md-header-anchor"></a><span>4. </span><strong><span>Affine Transformation and Morphing</span></strong></h5><ul><li><p><span>The affine transformation is the core part of the morphing algorithm. For each triangle:</span></p><ul><li><strong><span>Affine Transformation</span></strong><span>: Each triangle from Image A is warped to its corresponding triangle in Image B using an affine transformation. This transformation linearly maps the points in one triangle to another, preserving the shape and ensuring smooth transitions.</span></li><li><strong><span>Morphing</span></strong><span>: The triangles from both images are blended together using a weighted average (controlled by an </span><code>alpha</code><span> parameter) to create intermediate frames in the morph sequence. For example, an </span><code>alpha</code><span> of 0.5 creates an equal blend of both images, while an </span><code>alpha</code><span> of 0 or 1 retains one of the original images.</span></li></ul></li></ul><h6><a name="5-saving-the-results" class="md-header-anchor"></a><span>5. </span><strong><span>Saving the Results</span></strong></h6><ul><li><span>Once the triangulation is visualized, it is saved as a PNG image. Similarly, the triangulation data (which triangles correspond between the two images) is saved as text files for later use in image morphing or further processing.</span></li></ul><h4><a name="result" class="md-header-anchor"></a><span>Result</span></h4><figure><table><thead><tr><th><span>Image 1</span></th><th><span>Image 2</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project3\code\code\img\part1\1.png" referrerpolicy="no-referrer" alt="1"></td><td><img src="F:\UCB\CS180\project3\code\code\img\part1\2.png" referrerpolicy="no-referrer" alt="2"></td></tr></tbody></table></figure><figure><table><thead><tr><th><span>                                 The Result of Triangulation</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project3\code\code\img\part1\delaunay_triangulation.png" referrerpolicy="no-referrer" alt="delaunay_triangulation"></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="part-2-computing-the-mid-way-face" class="md-header-anchor"></a><span>Part 2: Computing the &quot;Mid-way Face&quot;</span></h3><p><span>In this part, we computed the &quot;mid-way face&quot; between two images, which represents a blend of both shape and color. To generate the mid-way face, we:</span></p><ol start='' ><li><span>Calculated the average position of the key points between the two images to get the average shape.</span></li><li><span>Warped both images to this average shape.</span></li><li><span>Blended the colors of both images to create the mid-way face.</span></li></ol><h4><a name="our-approach-n34" class="md-header-anchor"></a><span>Our Approach:</span></h4><ol start='' ><li><span>We computed the average shape by taking a weighted average of the key points from both images. The </span><code>warp_frac</code><span> controls how much the shape transitions between the two images.</span></li><li><span>For each triangle, we applied an affine transformation to warp the shapes of both images to the average shape. The function </span><code>apply_affine_transform</code><span> computes the affine transformation matrix for each triangle, and we used OpenCV’s </span><code>warpAffine</code><span> function to perform the actual image warping.</span></li><li><span>The </span><code>morph_triangle</code><span> function handled the color blending between the two images based on the </span><code>dissolve_frac</code><span>.</span></li></ol><h4><a name="result-n42" class="md-header-anchor"></a><span>Result</span></h4><figure><table><thead><tr><th><span>            Image 1</span></th><th><span>            Midface</span></th><th><span>           Image 2</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project3\code\code\img\part2&amp;3\1.png" referrerpolicy="no-referrer" alt="1"></td><td><img src="F:\UCB\CS180\project3\code\code\img\part2&amp;3\midface.png" referrerpolicy="no-referrer" alt="midface"></td><td><img src="F:\UCB\CS180\project3\code\code\img\part2&amp;3\2.png" referrerpolicy="no-referrer" alt="2"></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="part-3-the-morph-sequence" class="md-header-anchor"></a><span>Part 3: The Morph Sequence</span></h3><p><span>In this part, the goal is to generate an animation consisting of transition frames between the two images. Each frame represents a gradual morph from image A to image B, involving changes in both shape and color.</span></p><h4><a name="our-approach-n55" class="md-header-anchor"></a><span>Our Approach:</span></h4><ol start='' ><li><span>The </span><code>warp_frac</code><span> and </span><code>dissolve_frac</code><span> parameters are gradually increased from 0 to 1, meaning the shape and color transition from image A to image B over time.</span></li><li><span>For each frame, we calculated intermediate key points between the two images, which determine the shape of the image at that point in time. For each triangle, we applied the affine transformation to warp both images to the intermediate shape and blended the colors to create the final morphing frame.</span></li><li><span>The frames were saved and assembled into an MP4 video using OpenCV’s </span><code>VideoWriter</code><span>.</span></li></ol><h4><a name="result-n63" class="md-header-anchor"></a><span>Result</span></h4><p><img src="F:\UCB\CS180\project3\code\code\img\part2&amp;3\output.gif" referrerpolicy="no-referrer" alt="output"></p><p>&nbsp;</p><p>&nbsp;</p><h3><a name="part-4-the-mean-face-of-a-population" class="md-header-anchor"></a><span>Part 4: The &quot;Mean Face&quot; of a Population</span></h3><p><span>In this part, we computed the mean face of a group of images. The mean face represents the average shape and appearance of a population of faces. We can also warp each face in the dataset to the average shape and compare individual faces with the mean face.</span></p><h4><a name="our-approach-n69" class="md-header-anchor"></a><span>Our Approach:</span></h4><ol start='' ><li><span>We averaged the key points across all individuals in the dataset to compute the mean shape.</span></li><li><span>We warped each face to the mean shape using affine transformations and displayed the results to compare individual faces to the average geometry.</span></li><li><span>We computed the mean face by blending all the faces in the population and displayed the final result.</span></li></ol><h4><a name="result-n77" class="md-header-anchor"></a><span>Result</span></h4><p><img src="F:\UCB\CS180\project3\code\code\img\part4\mean_face_a.jpg" referrerpolicy="no-referrer" alt="mean_face_a"></p><h3><a name="part-5-caricatures-extrapolating-from-the-mean" class="md-header-anchor"></a><span>Part 5: Caricatures: Extrapolating from the Mean</span></h3><p><span>In this part, we generated caricatures by exaggerating the differences between our own face and the mean face. By moving the key points of our face further away from the average face’s key points, we can create exaggerated facial features.</span></p><h4><a name="our-approach-n81" class="md-header-anchor"></a><span>Our Approach:</span></h4><ol start='' ><li><span>We computed the difference between our face’s key points and the mean face’s key points.</span></li><li><span>We exaggerated this difference by amplifying the deviation, thus creating a caricature with exaggerated features (Finally I choose alpha = 1.5 to make the caricature).</span></li><li><span>We applied an affine transformation to warp our face into this exaggerated shape and produced the final caricature image.</span></li></ol><h4><a name="result-n89" class="md-header-anchor"></a><span>Result</span></h4><figure><table><thead><tr><th><span>         Mean Face</span></th><th><span>          Caricatures</span></th><th><span>          My Face</span></th></tr></thead><tbody><tr><td><img src="F:\UCB\CS180\project3\code\code\img\part5\mean_face.png" referrerpolicy="no-referrer" alt="mean_face"></td><td><img src="F:\UCB\CS180\project3\code\code\img\part5\manhua.png" referrerpolicy="no-referrer" alt="manhua"></td><td><img src="F:\UCB\CS180\project3\code\code\img\part5\2.png" referrerpolicy="no-referrer" alt="2"></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="part-6-bells-and-whistles" class="md-header-anchor"></a><span>Part 6 Bells and Whistles</span></h3><p><span>Using face morphine, I created a picture of my changing process from kindergarten to now.</span></p><h4><a name="our-approach-n113" class="md-header-anchor"></a><span>Our Approach:</span></h4><ol><li><strong><span>Loading Images</span></strong><span>: The </span><code>load_image</code><span> function loads PNG images, converting 4-channel images (RGBA) into RGB format.</span></li><li><strong><span>Delaunay Triangulation</span></strong><span>: The key points from each image are triangulated using Delaunay triangulation, which splits the image into triangles for smooth warping between corresponding areas of different images.</span></li><li><strong><span>Affine Transformation &amp; Morphing</span></strong><span>: Each triangle from the first image is warped and blended with the corresponding triangle from the second image using an </span><code>alpha</code><span> value. This creates intermediate frames that gradually transition between images.</span></li><li><strong><span>Generating Morph Sequence</span></strong><span>: The intermediate frames are generated by morphing between the images in sequence, and the frames are saved as a video file.</span></li><li><strong><span>Adding Audio</span></strong><span>: The algorithm uses </span><code>moviepy</code><span> to add audio to the generated morphing video, creating a final MP4 video with sound.</span></li></ol><h4><a name="result-n107" class="md-header-anchor"></a><span>Result</span></h4><p><span>Here is the link of youtube.</span></p><p><a href='https://youtube.com/shorts/WarX4Df_IEM?feature=share' target='_blank' class='url'>https://youtube.com/shorts/WarX4Df_IEM?feature=share</a></p><p>&nbsp;</p><h3><a name="plus" class="md-header-anchor"></a><span>Plus</span></h3><p><span>I write every code for each part seperately. So to submit the project, I copy all my seperate code into the </span><code>main.ipynb</code><span>.</span></p></div>
+</body>
+</html>
